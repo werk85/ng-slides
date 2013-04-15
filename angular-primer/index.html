@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en" xmlns:ng="http://angularjs.org/">
+<html lang="en" xmlns:ng="http://angularjs.org/" ng-app="slides">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>AngularJS Intro</title>
-  <script src="../jquery-1.4.2.min.js"></script>
-  <script src="../angular-0.9.17.js" ng:autobind></script>
+  <script src="../jquery-1.9.1.js"></script>
+  <script src="../angular.js" ng:autobind></script>
   <script src="../syntaxhighlighter/shCore.js"></script>
   <script src="../syntaxhighlighter/shBrushJScript.js"></script>
   <script src="../syntaxhighlighter/shBrushXml.js"></script>
@@ -12,31 +12,37 @@
   <link rel="stylesheet" href="../syntaxhighlighter/shThemeDefault.css" type="text/css"/>
   <script src="../slide.js"></script>
 </head>
-<body>
+<body ng-controller="SlideCtrl">
 
   <slide>
 
 
-    <h1>AngularJS</h1>
-    <h2>The Primer</h2>
 
 
 
-    <p>Igor Minar<br>Miško Hevery</p>
+
+
+    <center><img src="img/AngularJS-large.png" width="600px"></center>
+
+
+
+
+    werk85
+    Malte Legenhausen &lt;legenhausen@werk85.de&gt;
   </slide>
 
 
   <!-- **** -->
 
 
-  <slide title="What is AngularJS?">
+  <slide title="Was ist AngularJS?">
 
     <ul>
-      <li>JavaScript Framework for building Web Apps</li>
-      <li>2.5+ years old</li>
-      <li>Pure JavaScript</li>
+      <li>Framework zur Programmierung von Web Apps</li>
+      <li>4+ Jahre alt</li>
+      <li>Pures JavaScript</li>
       <li>Open Source (@github, MIT)</li>
-      <li>Google Funded</li>
+      <li>Google gefördert</li>
     </ul>
   </slide>
 
@@ -47,12 +53,11 @@
   <slide title="Yet another JS Framework?">
 
     <h2 class="center">
-      Why?
+      Warum?
     </h2>
     <h2 class="center">
-      Because AngularJS
-      is
-      fundamentally different.
+      Weil AngularJS
+      fundamental anders ist.
     </h2>
   </slide>
 
@@ -60,15 +65,57 @@
   <!-- **** -->
 
 
-  <slide title="AngularJS Philosophy">
+  <slide title="AngularJS Philosophie">
 
 
     <pre><h2 class="center">
-  Be aligned with the past
-    and
-    the future of the web.</h2></pre>
+      Sei ausgerichtet an der 
+      Vergangenheit und der 
+      Zukunft des Web.</h2></pre>
   </slide>
 
+
+  <slide title="1989: HTML">
+
+    <center><img src="img/History_HTML.png" width="770" height="82"></center>
+
+    <p class="center">
+      Markup Sprache für wissenschaftliche Dokumente,
+      die über das Internet geteilt werden.
+    </p>
+  </slide>
+
+  <slide title="1995: JavaScript">
+
+    <center><img src="img/History_JS.png"></center>
+
+    <p class="center">
+      Skriptsprache für HTML Dokumente.
+    </p>
+  </slide>
+
+
+  <slide title="2005: AJAX / Web 2.0">
+
+    <center><img src="img/History_AJAX.png"></center>
+    <center><img src="img/gmail-logo.jpg" height="150"><img src="img/google-map-logo.gif" height="150"></center>
+    <p class="center">
+      Erstaunliche Anwendungen,
+      gebaut aus primitiven Bestandteilen.
+    </p>
+  </slide>
+
+  <slide title="2013: Was hat sich geändert?">
+    
+    <center><img src="img/History_today.png"></center>
+
+    <p class="center">
+      HTML und JavaScript haben sich verbessert,
+
+      aber Abstraktionsebenen sind die selben wie in 1989.
+    </p>
+
+  </slide>
 
   <!-- **** -->
 
@@ -79,7 +126,7 @@
     
     
     <h2 class="center">
-        3 pillars of AngularJS
+        Die 3 Standbeine von AngularJS
     </h2>
   </slide>
 
@@ -91,7 +138,7 @@
     
     
     <h2 class="center">
-      DOM-based extensible templating
+      DOM-basiertes erweiterbares Templating
     </h2>
 
   </slide>
@@ -124,7 +171,8 @@
     
     
     <h2 class="center">
-      Nonintrusive model mutation observation
+      Keine aufwendige
+      Datenmodell-Synchronisation
     </h2>
 
   </slide>
@@ -135,14 +183,13 @@
 
   <slide title="Model Observation">
     
-    
+    <h2 class="center">2-Way Databinding</h2>
     <pre><code style="font-size: 20px; color: black;">
-      users = [
+      $scope.users = [
         {id: 1, name: 'Bob'},
         {id: 2, name: 'Jim'}
       ]
     </code></pre>
-
   </slide>
 
 
@@ -153,8 +200,7 @@
     
     
     <h2 class="center">
-      App structure and testability
-      with Dependency Injection
+      Strukturierte und testbare Anwendungen dank Dependency Injection (DI)
     </h2>
   </slide>
 
@@ -178,13 +224,16 @@
   <!-- **** -->
 
 
-  <slide title="Demo time!">
-    <h2 class="center">
-      +AngularJS
-      @AngularJs
+  <slide title="Ende">
 
-      <a href="http://angularjs.org">http://angularjs.org</a>
-    </h2>
+
+
+
+
+
+    <h2 class="center">Fragen?</h2>
   </slide>
+
+  <div id="slideCounter">{{currentSlide}} / {{slideCount}}</div>
 </body>
 </html>
