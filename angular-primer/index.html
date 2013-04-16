@@ -8,8 +8,9 @@
   <script src="../syntaxhighlighter/shCore.js"></script>
   <script src="../syntaxhighlighter/shBrushJScript.js"></script>
   <script src="../syntaxhighlighter/shBrushXml.js"></script>
-  <link rel="stylesheet" href="../syntaxhighlighter/shCore.css" type="text/css"/>
-  <link rel="stylesheet" href="../syntaxhighlighter/shThemeDefault.css" type="text/css"/>
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="stylesheet" href="../css/shCore.css" type="text/css"/>
+  <link rel="stylesheet" href="../css/shThemeDefault.css" type="text/css"/>
   <script src="../slide.js"></script>
 </head>
 <body ng-controller="SlideCtrl">
@@ -20,15 +21,11 @@
 
 
 
-
-
     <center><img src="img/AngularJS-large.png" width="600px"></center>
 
-
-
-
-    werk85
-    Malte Legenhausen &lt;legenhausen@werk85.de&gt;
+    <p>
+      15.04.2013<br/>Malte Legenhausen &lt;legenhausen@werk85.de&gt;<br/>werk85 - Maßschneiderei für Medien
+    </p>
   </slide>
 
 
@@ -36,10 +33,9 @@
 
 
   <slide title="Was ist AngularJS?">
-
     <ul>
       <li>Framework zur Programmierung von Web Apps</li>
-      <li>4+ Jahre alt</li>
+      <li>4 Jahre alt</li>
       <li>Pures JavaScript</li>
       <li>Open Source (@github, MIT)</li>
       <li>Google gefördert</li>
@@ -50,8 +46,7 @@
   <!-- **** -->
 
 
-  <slide title="Yet another JS Framework?">
-
+  <slide title="Noch ein anderes JS Framework?">
     <h2 class="center">
       Warum?
     </h2>
@@ -98,21 +93,20 @@
   <slide title="2005: AJAX / Web 2.0">
 
     <center><img src="img/History_AJAX.png"></center>
+    
     <center><img src="img/gmail-logo.jpg" height="150"><img src="img/google-map-logo.gif" height="150"></center>
-    <p class="center">
-      Erstaunliche Anwendungen,
+    <p class="center">Erstaunliche Anwendungen,
       gebaut aus primitiven Bestandteilen.
     </p>
   </slide>
 
   <slide title="2013: Was hat sich geändert?">
-    
+
     <center><img src="img/History_today.png"></center>
 
     <p class="center">
-      HTML und JavaScript haben sich verbessert,
-
-      aber Abstraktionsebenen sind die selben wie in 1989.
+      HTML und JavaScript haben sich verbessert, aber
+      die Abstraktionsebenen sind die selben wie in 1989.
     </p>
 
   </slide>
@@ -120,11 +114,10 @@
   <!-- **** -->
 
 
-  <slide>
+  <slide title="Das ist AngularJS">
     
     
-    
-    
+
     <h2 class="center">
         Die 3 Standbeine von AngularJS
     </h2>
@@ -136,6 +129,7 @@
 
   <slide title="Templating">
     
+
     
     <h2 class="center">
       DOM-basiertes erweiterbares Templating
@@ -149,16 +143,21 @@
 
   <slide title="Templating">
     
-    
-    <pre><code style="font-size: 20px; color: black;" ng:non-bindable>
+    Erweiter HTML um neue Funktionen:
+    <pre class="html-only highlight: [3, 4, 5]">
       &lt;ul&gt;
-        &lt;li ng-repeat="user in users" ng-click="selectUser(user)"&gt;
-          {{user.name}}
+        &lt;li 
+          ng-repeat="user in users" 
+          ng-click="selectUser(user)"&gt;
+          {{user.name}
         &lt;/li&gt;
       &lt;/ul&gt;
-      
+    </pre>
+
+    Eigene Tags:
+    <pre class="html-only">
       &lt;markdown&gt;*Hello* **world**!&lt;/markdown&gt;
-    </code></pre>
+    </pre>
     
   </slide>
 
@@ -182,21 +181,24 @@
 
 
   <slide title="Model Observation">
-    
-    <h2 class="center">2-Way Databinding</h2>
-    <pre><code style="font-size: 20px; color: black;">
+
+    Der $scope dient als Klebstoff zwischen der Ansicht und der Logik:
+    <pre class="code-only">
       $scope.users = [
         {id: 1, name: 'Bob'},
         {id: 2, name: 'Jim'}
-      ]
-    </code></pre>
+      ];
+    </pre>
+
+
+    <h2 class="center">2-Way Databinding</h2>
   </slide>
 
 
   <!-- **** -->
 
 
-  <slide title="Maintainability">
+  <slide title="Wart- und Tesbarkeit">
     
     
     <h2 class="center">
@@ -208,24 +210,40 @@
   <!-- **** -->
 
 
-  <slide title="Maintainability">
+  <slide title="Wartbarkeit">
     
-    
-    <pre><code style="font-size: 20px; color: black;">
-      function SettingsController($http, dialog) {
-        ...
-      }
-      // SettingsController.$inject = ['$http', 'dialog'];
-    </code></pre>
+    <pre class="code-only highlight: [1, 4, 5, 10]">
+      angular.module('app', [])
+
+      .controller('SettingsController', [
+        '$scope', 'dialog',
+        function($scope, dialog) {
+          ...
+        }
+      ])
+
+      .factory('dialog', [
+        '$http',
+        function($http) {
+          ...
+          return someDialog;
+        }
+      ])
+    </pre>
   </slide>
 
 
+  <slide title="Testbarkeit">
 
-  <!-- **** -->
+
+
+    <h2 class="center">Jasmine Spezifikationen</h2>
+
+    <h2 class="center">Karma - ein Multibrowser Testrunner</h2>
+  </slide>
 
 
   <slide title="Ende">
-
 
 
 

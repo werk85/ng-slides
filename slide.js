@@ -108,7 +108,7 @@ angular.module('slides', [])
 
 					'white-space': 'pre-line',
 
-					'font-family': "PTSansNarrowBold, Arial, 'MS Trebuchet', sans-serif",
+					'font-family': "PTSansNarrowRegular, Arial, 'MS Trebuchet', sans-serif",
 					'font-size': '25px',
 					'color': 'rgb(102, 102, 102)',
 					'text-shadow': '0 1px 1px rgba(0, 0, 0, .1)'
@@ -162,7 +162,7 @@ angular.module('slides', [])
 
 				'h2': {
 					'font-size': '50px',
-					'line-height': '65px',
+					'line-height': '75px',
 					'margin': '0',
 					'padding': '0'
 				},
@@ -207,7 +207,7 @@ angular.module('slides', [])
 				},
 
 				'pre': {
-					'font-family': "PTSansNarrowBold, Arial, 'MS Trebuchet', sans-serif"
+					'font-family': "PTSansNarrowRegular, Arial, 'MS Trebuchet', sans-serif"
 				},
 
 				'.center': {
@@ -298,7 +298,7 @@ angular.module('slides', [])
 		restrict: 'E',
 		link: function(scope, element, attr, controller) {
 			function highlight(){
-				SyntaxHighlighter.highlight();
+				SyntaxHighlighter.all();
 			}
 
 			if (element.hasClass('code')){
@@ -349,7 +349,10 @@ angular.module('slides', [])
 
 				highlight();
 			} else if (element.hasClass('code-only')){
-				element.addClass('brush: js; html-script: true; toolbar: false;');
+				element.addClass('brush: js; toolbar: false;');
+				highlight();
+			} else if (element.hasClass('html-only')) {
+				element.addClass('brush: html; toolbar: false;');
 				highlight();
 			}
 		}
